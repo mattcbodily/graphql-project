@@ -3,7 +3,49 @@
 }
 
 .poke-flex {
+  width: 90%;
+  margin: 50px auto;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.pokemon {
+  height: 215px;
+  width: 175px;
+  box-sizing: border-box;
+  padding: 0 10px 10px 10px;
+  background: red;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon img {
+  height: 100px;
+}
+
+.pokemon p {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.pokemon input {
+  height: 25px;
+  width: 79%;
+  margin: 2px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+.pokemon button {
+  height: 25px;
+  width: 80%;
+  margin: 2px 0;
+  border-radius: 5px;
+  border: none;
+  background: rebeccapurple;
 }

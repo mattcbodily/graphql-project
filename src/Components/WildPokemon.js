@@ -22,7 +22,7 @@ const WildPokemon = props => {
     }
 
     return (
-        <section onClick={catchPokemon}>
+        <section  className='pokemon' onClick={catchPokemon}>
             <img src={props.pokemon.sprites.front_default} alt={props.pokemon.name}/>
             <p>{props.pokemon.name}</p>
         </section>

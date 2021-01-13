@@ -3,7 +3,6 @@ const {
     GraphQLInt,
     GraphQLString,
     GraphQLNonNull,
-    GraphQLInputObjectType,
     GraphQLList,
     GraphQLSchema
 } = require('graphql')

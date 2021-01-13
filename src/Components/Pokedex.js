@@ -40,8 +40,8 @@ const Pokedex = props => {
     }
 
     return (
-        <section>
-            <img src={props.pokemon.image} alt={props.pokemon.name} height='100'/>
+        <section className='pokemon'>
+            <img src={props.pokemon.image} alt={props.pokemon.name} />
             {editView
             ? (
                 <>

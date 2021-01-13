@@ -55,7 +55,7 @@ const App = props => {
       </section>
       <h2>Pokedex</h2>
       <section className='poke-flex'>
-        {caughtPokemon.map(pokemon => (
+        {caughtPokemon.slice().sort((a,b) => a.id - b.id).map(pokemon => (
           <Pokedex
             key={pokemon.id}
             pokemon={pokemon} />
