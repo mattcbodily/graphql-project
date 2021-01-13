@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { EDIT_NAME } from '../GraphQL/Mutations';
+import { EDIT_NAME, DELETE_POKEMON } from '../GraphQL/Mutations';
 import { GET_POKEMON } from '../GraphQL/Queries';
 
 const Pokedex = props => {
     const [newName, setNewName] = useState(''),
           [editView, setEditView] = useState(false);
 
-    const [editName, {error}] = useMutation(EDIT_NAME);
+    const [editName, {error}] = useMutation(EDIT_NAME),
+          [deletePokemon, {error2}] = useMutation(DELETE_POKEMON);
 
     const changeName = () => {
         editName({
@@ -18,7 +19,24 @@ const Pokedex = props => {
             refetchQueries: [{query: GET_POKEMON}]
         })
 
+        if(error){
+            console.log(error)
+        }
+
         setEditView(false);
+    }
+
+    const removePokemon = () => {
+        deletePokemon({
+            variables: {
+                id: props.pokemon.id
+            },
+            refetchQueries: [{query: GET_POKEMON}]
+        })
+
+        if(error2){
+            console.log(error2)
+        }
     }
 
     return (
@@ -36,7 +54,7 @@ const Pokedex = props => {
                 <>
                     <p>{props.pokemon.name}</p>
                     <button onClick={() => setEditView(true)}>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={removePokemon}>Delete</button>
                 </>
             )}
         </section>

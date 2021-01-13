@@ -29,3 +29,15 @@ export const EDIT_NAME = gql`
         }
     }
 `
+
+export const DELETE_POKEMON = gql`
+    mutation deletePokemon (
+        $id: Int!
+        ) {
+        deletePokemon(
+            id: $id
+        ) {
+            id
+        }
+    }
+`
