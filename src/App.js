@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import WildPokemon from './Components/WildPokemon';
 import Pokedex from './Components/Pokedex';
 import { GET_POKEMON } from './GraphQL/Queries';
+import { FlexSection } from './styles/AppStyles';
 import './App.css';
 
 const App = props => {
@@ -40,6 +41,10 @@ const App = props => {
   }, [])
 
   useEffect(() => {
+    if(error) {
+      console.log(error)
+    }
+
     if (data) {
       setCaughtPokemon(data.pokemon)
     }
@@ -48,19 +53,19 @@ const App = props => {
   return (
     <div className="App">
       <Header />
-      <section className='poke-flex'>
+      <FlexSection>
         {wildPokemon.map((pokemon, i) => (
           <WildPokemon key={i} pokemon={pokemon} getWildPokemon={getWildPokemon}/>
         ))}
-      </section>
+      </FlexSection>
       <h2>Pokedex</h2>
-      <section className='poke-flex'>
+      <FlexSection>
         {caughtPokemon.slice().sort((a,b) => a.id - b.id).map(pokemon => (
           <Pokedex
             key={pokemon.id}
             pokemon={pokemon} />
         ))}
-      </section>
+      </FlexSection>
     </div>
   )
 }

@@ -1,13 +1,9 @@
 .App {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 50px 0;
   text-align: center;
-}
-
-.poke-flex {
-  width: 90%;
-  margin: 50px auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  background: #073b4c;
 }
 
 .pokemon {
@@ -15,7 +11,7 @@
   width: 175px;
   box-sizing: border-box;
   padding: 0 10px 10px 10px;
-  background: red;
+  background: #118ab2;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -39,13 +35,4 @@
   margin: 2px 0;
   border-radius: 5px;
   border: none;
-}
-
-.pokemon button {
-  height: 25px;
-  width: 80%;
-  margin: 2px 0;
-  border-radius: 5px;
-  border: none;
-  background: rebeccapurple;
 }

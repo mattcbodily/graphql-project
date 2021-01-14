@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { EDIT_NAME, DELETE_POKEMON } from '../GraphQL/Mutations';
 import { GET_POKEMON } from '../GraphQL/Queries';
+import { Button } from '../styles/AppStyles';
 
 const Pokedex = props => {
     const [newName, setNewName] = useState(''),
@@ -46,15 +47,15 @@ const Pokedex = props => {
             ? (
                 <>
                     <input value={newName} onChange={e => setNewName(e.target.value)}/>
-                    <button onClick={changeName}>Submit</button>
-                    <button onClick={() => setEditView(false)}>Cancel</button>
+                    <Button onClick={changeName}>Submit</Button>
+                    <Button delete onClick={() => setEditView(false)}>Cancel</Button>
                 </>
             )
             : (
                 <>
                     <p>{props.pokemon.name}</p>
-                    <button onClick={() => setEditView(true)}>Edit</button>
-                    <button onClick={removePokemon}>Delete</button>
+                    <Button onClick={() => setEditView(true)}>Edit</Button>
+                    <Button delete onClick={removePokemon}>Delete</Button>
                 </>
             )}
         </section>
